@@ -18,4 +18,9 @@ ADD . /var/www/
 EXPOSE 9000
 
 WORKDIR /var/www/
+
+RUN usermod -u 1000 www-data
+RUN chown -R www-data:www-data .
+USER www-data
+
 RUN composer install --prefer-dist
